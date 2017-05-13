@@ -110,7 +110,7 @@ public class Registrar extends AppCompatActivity {
                 pasatiempo =getResources().getString(R.string.bailar)+", ";
             }
 
-            pasatiempo= pasatiempo.substring(pasatiempo.length()-1);
+            pasatiempo= pasatiempo.substring(0,pasatiempo.length()-2);
 
             p = new Persona (foto, cedula, nombre, apellido, sexo, pasatiempo);
             p.guardar(getApplicationContext());
@@ -126,6 +126,23 @@ public class Registrar extends AppCompatActivity {
         int numero = (int) (Math.random()*3);
         return fotos[numero];
     }
+
+    public void limpiar (View v){
+        limpiar();
+    }
+
+    public void buscar (View v){
+        Persona p;
+        if (validarCedula()) {
+            p = Datos.buscarPersona(getApplicationContext(), cajacedula.getText().toString());
+            if(p!=null){
+                cajanombre.setText(p.getNombre());
+                cajaapellido.setText(p.getApellido());
+                
+            }
+        }
+    }
+
 }
 
 

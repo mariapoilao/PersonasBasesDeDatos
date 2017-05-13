@@ -28,8 +28,8 @@
             android:layout_toEndOf="@+id/imgfoto"
             android:layout_toRightOf="@+id/imgfoto"
             android:text="TextView"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textColor="@android:color/black"
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/txtNombreP"
@@ -42,6 +42,7 @@
             android:layout_marginLeft="12dp"
             android:layout_marginStart="12dp"
             android:text="TextView"
+            android:textColor="@android:color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -54,6 +55,7 @@
             android:layout_alignStart="@+id/txtNombreP"
             android:layout_marginBottom="20dp"
             android:text="TextView"
+            android:textColor="@android:color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
     </RelativeLayout>

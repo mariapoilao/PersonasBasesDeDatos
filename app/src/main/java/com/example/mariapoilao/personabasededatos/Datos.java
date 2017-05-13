@@ -12,13 +12,15 @@ import java.util.ArrayList;
 
 public class Datos {
 
+    private static Persona p;
+
     public static ArrayList<Persona>traerPersonas(Context contexto) {
 
         ArrayList<Persona> personas = new ArrayList<>();
 
         SQLiteDatabase db;
         String sql, foto, cedula, nombre, apellido, sexo, pasatiempo;
-        Persona p;
+
 
         PersonasSQLiteOpenHelper aux = new PersonasSQLiteOpenHelper(contexto, "DBPersonas", null, 1);
         db = aux.getReadableDatabase();
@@ -26,7 +28,7 @@ public class Datos {
         //Cursor
 
         sql = "SELECT * FROM Personas";
-        db.execSQL(sql);
+       // db.execSQL(sql);
         Cursor c = db.rawQuery(sql, null);
 
         //Recorrido del cursor
@@ -47,4 +49,41 @@ public class Datos {
         db.close();
         return personas;
     }
+
+    public static Persona buscarPersona(Context contexto, String ced){
+
+
+        SQLiteDatabase db;
+        String sql, foto, cedula, nombre, apellido, sexo, pasatiempo;
+        Persona p =null;
+
+
+        PersonasSQLiteOpenHelper aux = new PersonasSQLiteOpenHelper(contexto, "DBPersonas", null, 1);
+        db = aux.getReadableDatabase();
+
+        //Cursor
+
+        sql = "SELECT * FROM Personas WHERE cedula = '"+ced+"'";
+        // db.execSQL(sql);
+        Cursor c = db.rawQuery(sql, null);
+
+        //Recorrido del cursor
+
+        if (c.moveToFirst()) {
+                foto = c.getString(0);
+                cedula = c.getString(1);
+                nombre = c.getString(2);
+                apellido = c.getString(3);
+                sexo = c.getString(4);
+                pasatiempo = c.getString(5);
+                p = new Persona(foto, cedula, nombre, apellido, sexo, pasatiempo);
+
+
+        }
+
+        db.close();
+        return p;
+    }
+
+
 }
