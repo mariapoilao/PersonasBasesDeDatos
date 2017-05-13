@@ -16,6 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Registrar" />
+        <activity android:name=".Listado_tabla" />
+        <activity android:name=".Listado_Personalizado"></activity>
     </application>
 
 </manifest>
