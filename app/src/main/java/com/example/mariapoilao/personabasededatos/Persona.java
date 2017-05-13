@@ -1,5 +1,9 @@
 package com.example.mariapoilao.personabasededatos;
 
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+
 /**
  * Created by mariapoilao on 12/05/17.
  */
@@ -68,4 +72,38 @@ public class Persona {
     public void setPasatiempo(String pasatiempo) {
         this.pasatiempo = pasatiempo;
     }
+
+    public void guardar (Context contexto){
+        SQLiteDatabase db;
+        String sql;
+
+        //Abrir la conexion de data base pero en modo escritura
+
+        PersonasSQLiteOpenHelper aux = new PersonasSQLiteOpenHelper(contexto, "DBPersonas", null,1);
+        db = aux.getWritableDatabase();
+
+        //Insertar la forma version 1.0
+
+        sql = "INSERT INTO Personas values ('"+this.getFoto()+"','"+this.getCedula()+"','"+this.getNombre()+"','"+this.getApellido()+"','"+this.getSexo()+"','"+this.getPasatiempo()+"')";
+
+        db.execSQL(sql);
+
+        //Forma 2 de insertar
+
+     /*   ContentValues nuevoRegistro = new ContentValues();
+        nuevoRegistro.put("foto", this.getFoto());
+        nuevoRegistro.put("cedula",this.getCedula());
+        nuevoRegistro.put("nombre",this.getNombre());
+        nuevoRegistro.put("apellido",this.getApellido());
+        nuevoRegistro.put("sexo",this.getSexo());
+        nuevoRegistro.put("pasatiempo",this.getPasatiempo());
+
+        db.insert("Personas",null,nuevoRegistro);
+
+        //Cerrar conexion
+*/
+        db.close();
+
+    }
 }
+
