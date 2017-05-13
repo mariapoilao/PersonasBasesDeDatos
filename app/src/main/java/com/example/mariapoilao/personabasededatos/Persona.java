@@ -126,5 +126,24 @@ public class Persona {
     }
 
 
+    public void modificar (Context contexto){
+
+        SQLiteDatabase db;
+        String sql;
+
+
+        PersonasSQLiteOpenHelper aux = new PersonasSQLiteOpenHelper(contexto, "DBPersonas", null,1);
+        db = aux.getWritableDatabase();
+
+
+        sql = "UPDATE Personas SET nombre='"+ this.getNombre()+"', "+"apellido='"+ this.getApellido()+"', "+"sexo='"+ this.getSexo()+"', "+"pasatiempo='"+ this.getPasatiempo()+"' "+"WHERE cedula ='"+this.getCedula()+"'";
+
+        db.execSQL(sql);
+
+
+        db.close();
+    }
+
+
 }
 

@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 public class Registrar extends AppCompatActivity {
 
@@ -190,6 +191,45 @@ public class Registrar extends AppCompatActivity {
         }
 
     }
+
+    public void modificar (View v){
+        Persona p, p2;
+        String nombre, apellido, sexo, pasatiempo="";
+        if (validarCedula()) {
+            p = Datos.buscarPersona(getApplicationContext(), cajacedula.getText().toString());
+            if (p != null) {
+
+                nombre = cajanombre.getText().toString();
+                apellido = cajaapellido.getText().toString();
+                if (rdfemenino.isChecked()) sexo = getResources().getString(R.string.femenino);
+                else sexo = getResources().getString((R.string.femenino));
+
+                if (chkprogramar.isChecked()) {
+
+                    pasatiempo = getResources().getString(R.string.programar) + ", ";
+                }
+                if (chkleer.isChecked()) {
+
+                    pasatiempo = pasatiempo + getResources().getString(R.string.leer) + ", ";
+                }
+                if (chkbailar.isChecked()) {
+
+                    pasatiempo += pasatiempo + getResources().getString(R.string.bailar) + ", ";
+                }
+
+                pasatiempo = pasatiempo.substring(0, pasatiempo.length() - 2);
+
+                p2 = new Persona(p.getFoto(),p.getCedula(), nombre, apellido, sexo,pasatiempo);
+                p2.modificar(getApplicationContext());
+
+                Toast.makeText(getApplicationContext(), "Persona modificada", Toast.LENGTH_SHORT).show();
+
+                limpiar();
+            }
+
+            }
+        }
+
 }
 
 
