@@ -9,7 +9,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imgfoto"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_alignParentLeft="true"
@@ -25,8 +25,8 @@
             android:layout_marginLeft="56dp"
             android:layout_marginStart="56dp"
             android:layout_marginTop="23dp"
-            android:layout_toEndOf="@+id/imageView"
-            android:layout_toRightOf="@+id/imageView"
+            android:layout_toEndOf="@+id/imgfoto"
+            android:layout_toRightOf="@+id/imgfoto"
             android:text="TextView"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -49,7 +49,7 @@
             android:id="@+id/txtApellidoP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/imageView"
+            android:layout_alignBottom="@+id/imgfoto"
             android:layout_alignLeft="@+id/txtNombreP"
             android:layout_alignStart="@+id/txtNombreP"
             android:layout_marginBottom="20dp"
