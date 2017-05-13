@@ -50,8 +50,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/nombre"
-            android:inputType="textPersonName"
-            android:text="@string/nombre" />
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/txtApellido"
@@ -59,8 +58,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/apellido"
-            android:inputType="textPersonName"
-            android:text="@string/apellido" />
+            android:inputType="textPersonName" />
 
         <TextView
             android:id="@+id/textView2"
@@ -83,6 +81,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:checked="true"
                     android:text="@string/femenino" />
 
                 <RadioButton
